@@ -1,5 +1,4 @@
 #include "graphicwidget.h"
-#include <QGraphicsView>
 
 GraphicWidget::GraphicWidget() {
 

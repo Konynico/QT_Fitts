@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/images">
-        <file>fitts.png</file>
-    </qresource>
-    <qresource prefix="/styles">
-        <file>style.qss</file>
-    </qresource>
-</RCC>

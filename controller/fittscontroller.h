@@ -3,6 +3,26 @@
 
 #include <QObject>
 #include <QElapsedTimer>
+#include <QApplication>
+#include <QDebug>
+#include <QtGlobal>
+#include <QChart>
+#include <QLineSeries>
+#include <QChartView>
+#include <QBarSeries>
+#include <QBarSet>
+#include <QLegend>
+#include <QBarCategoryAxis>
+#include <QHorizontalBarSeries>
+#include <QCategoryAxis>
+#include <QPieSeries>
+#include <QPieSlice>
+#include <QStringList>
+#include <algorithm>
+
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 
 class FittsView;
 class FittsModel;
@@ -11,16 +31,21 @@ class FittsController : public QObject
 {
     Q_OBJECT
 public:
-    FittsController(FittsView *fittsView, FittsModel *fittsModel);
+    FittsController();
     virtual ~FittsController() {}
     void start();
+
+    QList<FittsModel> *histModel;
+    QJsonArray getHisto();
 
 private:
     void initGame();
     void finish();
     void nextCible();
 
-    void calculateResult();
+    void calculateResultHome();
+    void addHisto();
+
 
     FittsModel *fittsModel;
     FittsView *fittsView;
@@ -33,10 +58,8 @@ private slots:
     void aideClicked();
     void startSimulation();
     void backToSettings();
-    void resultClicked();
-
-    //édité
-    void actionTheme();
+    void cancel();
+    void changeGraphHome();
 
     void aValueChanged(double value);
     void bValueChanged(double value);
@@ -45,8 +68,6 @@ private slots:
     void maxSizeChanged(int value);
 
     void cibleClicked(int x, int y);
-
-
 };
 
 #endif // FITTSCONTROLLER_H

@@ -7,6 +7,8 @@
 QT       += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += gui
+QT += multimedia
 
 TARGET = Fitts
 TEMPLATE = app
@@ -37,18 +39,19 @@ HEADERS += \
     model/fittsmodel.h \
     view/graphicwidget.h
 
+INCLUDEPATH += $$PWD/view/
+INCLUDEPATH += $$PWD/controller/
+INCLUDEPATH += $$PWD/model/
+
+RC_ICONS = iconFitss1.ico
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-INCLUDEPATH  += $$PWD/view/
-INCLUDEPATH  += $$PWD/controller/
-INCLUDEPATH  += $$PWD/model/
-
 RESOURCES += \
-    ressources.qrc
+    qtresources.qrc
 
 DISTFILES += \
-    style.qss \
-    style_old.qss
+    diagrammedeclasse.qmodel

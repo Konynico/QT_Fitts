@@ -4,6 +4,10 @@
 #include <QPoint>
 #include <QList>
 
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+
 class FittsView;
 class FittsController;
 
@@ -11,14 +15,15 @@ class FittsModel
 {
 public:
     FittsModel();
+    QJsonObject writeDataJson();
+    QJsonObject QPointToQJsonobject(QPoint);
 
 private:
-    FittsView *fittsView;
 
     int cibleLeft = 0;
     int nbCible = 10;
     int minSize = 10;
-    int maxSize = 150;
+    int maxSize = 160;
 
     double a = 0.20;
     double b = 0.10;
